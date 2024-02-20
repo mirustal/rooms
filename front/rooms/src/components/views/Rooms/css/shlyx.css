@@ -1,0 +1,60 @@
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+
+
+.simple-cell-card {
+  position: relative;
+  overflow: hidden; /* Для обрезки псевдоэлементов за пределами границ */
+}
+
+.simple-cell-card:hover {
+  color: rgb(88 199 250 / 100%);
+  transition: color 1s;
+}
+
+.simple-cell-card:hover::before, .simple-cell-card:hover::after {
+  animation: none;
+  opacity: 0;
+}
+
+.simple-cell-card::before, .simple-cell-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  animation: spin 2.5s linear infinite;
+}
+
+.simple-cell-card::before {
+  top: -0px; /* Регулируйте эти значения, чтобы изменить размер границы */
+  right: -0px;
+  bottom: -0px;
+  left: -0px;
+  border-radius: 8px; /* Радиус скругления углов */
+}
+
+.simple-cell-card::after {
+  top: -0px; /* Регулируйте эти значения для второй границы */
+  right: -0px;
+  bottom: -0px;
+  left: -0px;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(10px); /* Регулируйте размытие */
+  opacity: 0.7; /* Регулируйте прозрачность */
+  transition: opacity .5s;
+}
+
