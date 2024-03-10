@@ -12,8 +12,8 @@ import (
 	"strings"
 )
 
-const vk_service_token string = "a4caff63a4caff63a4caff637ba7df3cfdaa4caa4caff63c1d9c100d846681e403aa6b2"
-const vk_secure_key string = "EKPOk00p9RSxDAZLwVaa"
+const vk_service_token string = ""
+const vk_secure_key string = ""
 
 type queryParameter struct {
 	Key   string
